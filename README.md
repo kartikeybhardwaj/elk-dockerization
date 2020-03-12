@@ -276,7 +276,7 @@ Once the services are up and running, open your browser and open the url **http:
 Also, if you navigate to **http://localhost:5601/** you should see the Kibana console. Login to it using **elastic** user and its password.
 To make your application send data to logstash, use **localhost:9600** TCP address.
 
-##### References
+#### References
 
 - [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker)
 - [Configuring security in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html)
