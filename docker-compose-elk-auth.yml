@@ -1,0 +1,61 @@
+version: "3.7"
+
+services:
+
+  #################################################################
+  # Elasticsearch: Search engine
+  #################################################################
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.0
+    container_name: elasticsearch
+    restart: unless-stopped
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12:ro
+      - ./elasticsearch-data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200 # this is for REST
+      # - 9300:9300 # this is for nodes communication
+    networks:
+      - ntw-elk
+
+  #################################################################
+  # Logstash: Events and logs manager
+  #################################################################
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.6.0
+    container_name: logstash
+    restart: unless-stopped
+    volumes:
+      - ./logstash-auth.conf:/etc/logstash/conf.d/logstash.conf:ro
+      - ./logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    ports:
+      - 9600:9600
+      - 9601:9601
+    networks:
+      - ntw-elk
+
+  #################################################################
+  # Kibana: Data visualization dashboard for Elasticsearch
+  #################################################################
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.6.0
+    container_name: kibana
+    restart: unless-stopped
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml:ro
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+    networks:
+      - ntw-elk
+
+networks:
+  ntw-elk:
+    driver: bridge
