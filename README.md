@@ -252,11 +252,11 @@ Generate passwords for all the built-in users either automatically or interactiv
 
 - automatically
 
-    bin/elasticsearch-setup-passwords auto
+        bin/elasticsearch-setup-passwords auto
 
 - interactively
 
-    bin/elasticsearch-setup-passwords interactive
+        bin/elasticsearch-setup-passwords interactive
 
 Note them down and keep them somewhere safe. Exit the container by pressing `CTRL+D`. Bring the container down by `docker-compose -f docker-compose-elk-auth.yml down`.
 
