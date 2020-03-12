@@ -4,8 +4,8 @@ This guide is made for ELK v7.6.0.
 
 Logstash receives data, transmits it to Elasticsearch which can then be viewed in Kibana.
 
-1. Without X-Pack security enabled
-2. With X-Pack security enabled
+1. [Without X-Pack security enabled](https://github.com/kartikeybhardwaj/elk-dockerization#1-without-x-pack-security-enabled)
+2. [With X-Pack security enabled](https://github.com/kartikeybhardwaj/elk-dockerization#2-with-x-pack-security-enabled)
 
 ## 1. Without X-Pack security enabled
 
