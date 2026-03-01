@@ -1,0 +1,8 @@
+elasticsearch-data/
+elastic-certificates.p12
+elastic-stack-ca.p12
+.DS_Store
+firebase-debug.log
+*.swp
+*.swo
+*~
