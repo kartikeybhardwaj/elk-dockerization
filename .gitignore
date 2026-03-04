@@ -1,8 +1,21 @@
-elasticsearch-data/
-elastic-certificates.p12
-elastic-stack-ca.p12
+# Environment
+.env*
+
+# OS
 .DS_Store
-firebase-debug.log
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
+
+# Logs
+firebase-debug.log
+
+# Elasticsearch
+elasticsearch-data/
+elastic-certificates.p12
+elastic-stack-ca.p12
